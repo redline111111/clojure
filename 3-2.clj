@@ -3,7 +3,7 @@
 (def threads-number (.availableProcessors (Runtime/getRuntime)))
 (def slice-size 4)
 
-(defn heavy-even? [x] (Thread/sleep 10) (even? x))
+(defn simulate-heavy-even? [x] (Thread/sleep 10) (even? x))
 
 (defn my-partition [n coll]
   (when (not-empty coll)
@@ -21,8 +21,8 @@
        (mapcat deref)))
 
 (defn -main []
-  (time (nth (lazy-pfilter heavy-even? (range)) 50))
-  (time (nth (lazy-pfilter heavy-even? (range)) 50))
-  (time (nth (filter heavy-even? (range)) 50)))
+  (time (nth (lazy-pfilter simulate-heavy-even? (range)) 50))
+  (time (nth (lazy-pfilter simulate-heavy-even? (range)) 50))
+  (time (nth (filter simulate-heavy-even? (range)) 50)))
 
 (-main)

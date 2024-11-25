@@ -1,9 +1,7 @@
-(ns lab-exercise
+(ns lab1_2
   (:require [clojure.string :as str-util]))
 
 (defn extend-string
-  ([characters base-str]
-   (extend-string characters base-str []))
   ([characters base-str acc]
    (cond
      (empty? characters) acc
@@ -14,12 +12,10 @@
              (recur (rest characters) base-str updated-acc)))))
 
 (defn combine-strings
-  ([characters str-list]
-   (combine-strings characters str-list []))
   ([characters str-list acc]
    (if (empty? str-list)
      acc
-     (let [new-combos (extend-string characters (first str-list))]
+     (let [new-combos (extend-string characters (first str-list) [])]
        (recur characters (rest str-list) (concat acc new-combos))))))
 
 (defn generate-combinations
@@ -32,7 +28,7 @@
   ([characters size acc]
    (if (zero? size)
      acc
-     (let [new-acc (combine-strings characters acc)]
+     (let [new-acc (combine-strings characters acc [])]
        (recur characters (dec size) new-acc)))))
 
 (generate-combinations ["a" "b" "c"] 3)

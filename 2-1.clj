@@ -1,4 +1,4 @@
-(ns lab-task-integrals
+(ns lab2_1
   (:require [clojure.test :as t]))
 
 (def step-size 1/100)

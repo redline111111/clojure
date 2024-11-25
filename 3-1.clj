@@ -1,4 +1,4 @@
-(ns lab-parallel-filter)
+(ns lab3_1)
 
 (def num-threads (.availableProcessors (Runtime/getRuntime)))
 

@@ -1,4 +1,4 @@
-(ns lab-lazy-integrals
+(ns lab2_2ы
   (:require [clojure.test :as t]))
 
 (def step-size 1/10)
